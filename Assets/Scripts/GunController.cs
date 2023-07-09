@@ -6,21 +6,32 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     [SerializeField]
-    Gun currentGun;
-    float currentFireRate;
+    Gun currentGun; //현재 총
+    float currentFireRate; //연사속도
     AudioSource audioSource;
 
+    //상태변수
     bool isReload = false;
-    bool isFineSightMode = false;
+    [HideInInspector]
+    public bool isFineSightMode = false;
 
     [SerializeField]
     Vector3 originPos;
 
+    RaycastHit hitInfo;
+    [SerializeField]
+    Camera cam;
+    [SerializeField]
+    GameObject hit_effect_prefab;
+    public Gun GetGun()
+    {
+        return currentGun;
+    }
     // Start is called before the first frame update
     void Start()
     {
         audioSource=GetComponent<AudioSource>();
-        //originPos = transform.localPosition;
+        originPos = Vector3.zero;
     }
 
     void Update()
@@ -98,12 +109,13 @@ public class GunController : MonoBehaviour
             Fire();
         }
     }
+    //발사 전 계산
     void Fire()
     {
         if (currentGun.currentBulletCount > 0)
         {
             Shoot();
-
+            Hit();
         }
         else
         {
@@ -111,6 +123,7 @@ public class GunController : MonoBehaviour
 
         }
     }
+    //발사 후 계산
     void Shoot()
     {
         currentGun.currentBulletCount--;
@@ -120,6 +133,15 @@ public class GunController : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(RetroActionCoroutine());
+    }
+
+    void Hit()
+    {
+        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, currentGun.range))
+        {
+            GameObject clone = Instantiate(hit_effect_prefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            Destroy(clone, 2f);
+        }
     }
 
     IEnumerator RetroActionCoroutine()
