@@ -10,23 +10,22 @@ public class Rock : MonoBehaviour
     float destroyTime; //파편 제거 시간
     [SerializeField]
     SphereCollider col;
+
     [SerializeField]
     GameObject go_rock;
     [SerializeField]
     GameObject go_debris;
     [SerializeField]
     GameObject go_effect_prefabs;
+
     [SerializeField]
-    AudioSource audioSource;
+    string strike_SE;
     [SerializeField]
-    AudioClip effect_sound1;
-    [SerializeField]
-    AudioClip effect_sound2;
+    string destroy_SE;
 
     public void Mine()
     {
-        audioSource.clip = effect_sound1;
-        audioSource.Play();
+        SoundManager.instance.PlaySE(strike_SE);
 
         var clone = Instantiate(go_effect_prefabs, col.bounds.center, Quaternion.identity);
         Destroy(clone, destroyTime);
@@ -37,8 +36,7 @@ public class Rock : MonoBehaviour
     }
     void Destruction()
     {
-        audioSource.clip = effect_sound2;
-        audioSource.Play();
+        SoundManager.instance.PlaySE(destroy_SE);
 
         col.enabled=false;
         Destroy(go_rock);
