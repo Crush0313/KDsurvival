@@ -38,7 +38,7 @@ public class WeaponManager : MonoBehaviour
     Dictionary<string,Gun> gunDict = new Dictionary<string, Gun>();
     Dictionary<string, CloseWeapon> handDict = new Dictionary<string, CloseWeapon>();
     Dictionary<string, CloseWeapon> axeDict = new Dictionary<string, CloseWeapon>();
-    Dictionary<string, CloseWeapon> pickDick = new Dictionary<string, CloseWeapon>();
+    Dictionary<string, CloseWeapon> pickDict = new Dictionary<string, CloseWeapon>();
     [SerializeField]
     string currentWeaponType;
 
@@ -57,11 +57,11 @@ public class WeaponManager : MonoBehaviour
         }
         for (int i = 0; i < axes.Length; i++)
         {
-            handDict.Add(axes[i].closeWeaponName, axes[i]);
+            axeDict.Add(axes[i].closeWeaponName, axes[i]);
         }
         for (int i = 0; i < pickaxes.Length; i++)
         {
-            handDict.Add(pickaxes[i].closeWeaponName, pickaxes[i]);
+            pickDict.Add(pickaxes[i].closeWeaponName, pickaxes[i]);
         }
     }
 
@@ -77,7 +77,7 @@ public class WeaponManager : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Alpha3))
                 StartCoroutine(ChangeWeaponCoroutine("AXE", "Axe"));
             else if (Input.GetKeyDown(KeyCode.Alpha4))
-                StartCoroutine(ChangeWeaponCoroutine("PICKAXE", "PICKAxe"));
+                StartCoroutine(ChangeWeaponCoroutine("PICKAXE", "Pickaxe"));
 
         }
     }

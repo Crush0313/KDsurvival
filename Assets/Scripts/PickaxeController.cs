@@ -16,6 +16,10 @@ public class PickaxeController : CloseWeaponController
         {
             if (chkObj())
             {
+                if (hitInfo.transform.tag == "Rock")
+                {
+                    hitInfo.transform.GetComponent<Rock>().Mine();
+                }
                 isSwing = false; //1회만 타격
 
             }

@@ -11,7 +11,7 @@ public abstract class CloseWeaponController : MonoBehaviour
     protected bool isAttack = false;
     protected bool isSwing = false;
 
-    RaycastHit hitInfo;
+    protected RaycastHit hitInfo;
 
 
     // Update is called once per frame
