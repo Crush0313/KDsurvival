@@ -38,14 +38,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Camera theCamera;
     Rigidbody myRigid;
-    CapsuleCollider collider;
+    CapsuleCollider theCollider;
     GunController theGunController;
     CrossHair theCrossHair;
 
     void Start()
     {
         myRigid = GetComponent<Rigidbody>();
-        collider = GetComponent<CapsuleCollider>();
+        theCollider = GetComponent<CapsuleCollider>();
         theGunController = FindAnyObjectByType<GunController>();
         theCrossHair=FindAnyObjectByType<CrossHair>();
 
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
     //점프
     private void IsGround()
     {
-        isGround = Physics.Raycast(transform.position, Vector3.down, collider.bounds.extents.y + 0.1f); //미끄러지는 수준은 무시
+        isGround = Physics.Raycast(transform.position, Vector3.down, theCollider.bounds.extents.y + 0.1f); //미끄러지는 수준은 무시
         if(!isRun)
             theCrossHair.jumpAni(!isGround); //점프하면 달리는 것과 같은 십자선 애니 사용
     }
