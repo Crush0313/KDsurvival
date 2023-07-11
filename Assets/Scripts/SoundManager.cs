@@ -45,19 +45,23 @@ public class SoundManager : MonoBehaviour
         {
             if (_name == effectSounds[i].name)
             {
+                Debug.Log("찾았음"+ i);
                 for (int j = 0; j < audioSorceEffects.Length; j++) //재생 중이지  않은 빈 오디오소스 찾기
                 {
                     if (!audioSorceEffects[j].isPlaying)
                     {
+                        Debug.Log("찾음" + j);
+                        Debug.Log(_name);
+                        Debug.Log(effectSounds[i].name);
+
                         playSoundName[j] = effectSounds[i].name;
                         audioSorceEffects[j].clip = effectSounds[i].clip; //클립 넣기
                         audioSorceEffects[j].Play(); //재생
                         return; //함수 종료
                     }
-
-                    Debug.Log("모든 가용 audioSorce가 사용중입니다."); //빈 소스가 없음
-                    return;
                 }
+                Debug.Log("모든 가용 audioSorce가 사용중입니다."); //빈 소스가 없음
+                return;
             }
         }
         Debug.Log(name + "사운드가 SoundManager에 등록되지 않았습니다."); //등록된 이름의 사운드가 아님
