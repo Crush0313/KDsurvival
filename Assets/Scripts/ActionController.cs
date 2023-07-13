@@ -15,6 +15,8 @@ public class ActionController : MonoBehaviour
 
     [SerializeField]
     Text actionText;
+    [SerializeField]
+    Inventory theInventory;
 
     void Update()
     {
@@ -26,7 +28,6 @@ public class ActionController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             chkItem();
-            Debug.Log("½Å");
             canPickup();
         }
     }
@@ -36,6 +37,7 @@ public class ActionController : MonoBehaviour
         {
             if (hitinfo.transform != null)
             {
+                theInventory.AcquireItem(hitinfo.transform.GetComponent<ItemPickUp>().item);
                 Destroy(hitinfo.transform.gameObject);
                 infoDisappear();
             }
@@ -48,7 +50,6 @@ public class ActionController : MonoBehaviour
             if (hitinfo.transform.tag == "Item")
             {
                 InfoAppear();
-                //Destroy(hitinfo.transform.gameObject);
             }
         }
         else
