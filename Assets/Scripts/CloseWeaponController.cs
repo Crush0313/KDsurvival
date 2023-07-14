@@ -17,11 +17,14 @@ public abstract class CloseWeaponController : MonoBehaviour
     // Update is called once per frame
     protected void TryAttack()
     {
-        if (Input.GetButton("Fire1"))
+        if (!Inventory.inventoryActivated)
         {
-            if (!isAttack)
+            if (Input.GetButton("Fire1"))
             {
-                StartCoroutine(AttackCoroutine());
+                if (!isAttack)
+                {
+                    StartCoroutine(AttackCoroutine());
+                }
             }
         }
     }

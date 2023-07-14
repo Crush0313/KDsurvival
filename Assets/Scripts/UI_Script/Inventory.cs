@@ -65,24 +65,23 @@ public class Inventory : MonoBehaviour
                     if (slots[i].item.itemName == _item.itemName)
                     {
                         slots[i].SetSlotCount(_count);
-                        Debug.Log("ㄹㄹ");
                         return;
                     }
                 }
             }
         }
 
-            //슬롯에 없는 아이템이면,혹은 장비타입이라면
-            for (int i = 0; i < slots.Length; i++)
-            {
-                if (slots[i].item == null) //빈 슬롯 찾음
-                {
-                    slots[i].AddItem(_item, _count);
-                    Debug.Log(_item.itemName);
-                    Debug.Log("ㄹ");
-                    return;
-                }
-            }
+        //슬롯에 없는 아이템이면,혹은 장비타입이라면
+        for (int i = 0; i < slots.Length; i++) 
+        {
+            
+            if (slots[i].item == null) //빈 슬롯 찾음
+               {
+                //slots[i].transform.gameObject.SetActive(true);
+                slots[i].AddItem(_item, _count);
+                return;
+               }
+        }
         
     }
 }

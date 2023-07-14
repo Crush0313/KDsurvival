@@ -58,15 +58,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TryCrouch();
-        TryRun();
-        IsGround();
-        TryJump();
 
-        Move();
-        chkMove();
-        CameraRotation();
-        CharacterRotation();
+        if (!Inventory.inventoryActivated)
+        {
+
+            TryCrouch();
+            TryRun();
+            IsGround();
+            TryJump();
+
+            Move();
+            chkMove();
+            CameraRotation();
+            CharacterRotation();
+        }
         
     }
     //¾É±â
