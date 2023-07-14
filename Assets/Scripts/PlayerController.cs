@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     CapsuleCollider theCollider;
     GunController theGunController;
     CrossHair theCrossHair;
-    StatusConroller theStatusConroller;
+    StatusController theStatusController;
 
     void Start()
     {
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         theCollider = GetComponent<CapsuleCollider>();
         theGunController = FindAnyObjectByType<GunController>();
         theCrossHair=FindAnyObjectByType<CrossHair>();
-        theStatusConroller = FindAnyObjectByType<StatusConroller>();
+        theStatusController = FindAnyObjectByType<StatusController>();
         applySpeed = walkSpeed;
         originPosY = theCamera.transform.localPosition.y;
         applyCrouchPosY = originPosY;
@@ -122,11 +122,11 @@ public class PlayerController : MonoBehaviour
     //달리기
     void TryRun()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && theStatusConroller.GetCurrentSP() > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && theStatusController.GetCurrentSP() > 0)
         {
             Runnung();
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) || theStatusConroller.GetCurrentSP() <= 0)
+        if (Input.GetKeyUp(KeyCode.LeftShift) || theStatusController.GetCurrentSP() <= 0)
         {
             runningCancel();
         }
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
         isRun = true;
         theCrossHair.runAni(isRun);
-        theStatusConroller.DecreaseSP(10);
+        theStatusController.DecreaseSP(10);
         applySpeed = runSpeed;
 
     }
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
     }
     private void TryJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround && theStatusConroller.GetCurrentSP()>0)
+        if (Input.GetKeyDown(KeyCode.Space) && isGround && theStatusController.GetCurrentSP()>0)
         {
             Jump();
         }
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
         //앉은 상태에서 점프시 앉기 해제
         if (isCrouch)
             Crouch();
-        theStatusConroller.DecreaseSP(10);
+        theStatusController.DecreaseSP(10);
         myRigid.velocity = transform.up * jumpForce;
     }
 

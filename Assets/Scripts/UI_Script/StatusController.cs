@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusConroller : MonoBehaviour
+public class StatusController : MonoBehaviour
 {
     [SerializeField]
     int hp;
@@ -151,10 +151,19 @@ public class StatusConroller : MonoBehaviour
         return currentSp;
     }
 
+    public void IncreaseSP(int _count)
+    {
+
+        if (currentSp + _count < sp)
+            currentSp += _count;
+        else
+            currentSp = sp;
+
+    }
     public void IncreaseHP(int _count)
     {
 
-        if (currentHp + _count > hp) //sp皑家
+        if (currentHp + _count < hp) //sp皑家
             currentHp += _count;
         else
             currentHp = hp;
@@ -176,7 +185,7 @@ public class StatusConroller : MonoBehaviour
     public void IncreaseDP(int _count)
     {
 
-        if (currentDp + _count > dp) //sp皑家
+        if (currentDp + _count < dp) //sp皑家
             currentDp += _count;
         else
             currentDp = dp;
@@ -194,7 +203,7 @@ public class StatusConroller : MonoBehaviour
     public void IncreaseHungry(int _count)
     {
 
-        if (currentHungry + _count > hungry) //sp皑家
+        if (currentHungry + _count < hungry) //sp皑家
             currentHungry += _count;
         else
             currentHungry = hungry;
@@ -211,7 +220,7 @@ public class StatusConroller : MonoBehaviour
     public void IncreaseThirsty(int _count)
     {
 
-        if (currentThirsty + _count > thirsty) //sp皑家
+        if (currentThirsty + _count < thirsty) //sp皑家
             currentThirsty += _count;
         else
             currentThirsty = hungry;
