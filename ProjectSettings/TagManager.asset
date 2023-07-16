@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rock
   - Item
+  - Npc
   layers:
   - Default
   - TransparentFX

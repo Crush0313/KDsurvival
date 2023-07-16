@@ -27,6 +27,7 @@ public class GunController : MonoBehaviour
     CrossHair theCrossHair;
     AudioSource audioSource;
 
+    [SerializeField] LayerMask layerMask;
 
     public Gun GetGun()
     {
@@ -156,7 +157,7 @@ public class GunController : MonoBehaviour
             new Vector3(Random.Range(-theCrossHair.getAccuracy() -currentGun.accuracy, theCrossHair.getAccuracy() + currentGun.accuracy),
                         Random.Range(-theCrossHair.getAccuracy() -currentGun.accuracy, theCrossHair.getAccuracy() + currentGun.accuracy),
                         0)
-            , out hitInfo, currentGun.range))
+            , out hitInfo, currentGun.range,layerMask))
         {
             GameObject clone = Instantiate(hit_effect_prefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(clone, 2f);

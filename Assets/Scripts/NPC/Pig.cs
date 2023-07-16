@@ -65,7 +65,7 @@ public class Pig : MonoBehaviour
             rigid.MoveRotation(Quaternion.Euler(_rotation));
         }
     }
-    void Run(Vector3 _targetPos)
+    public void Run(Vector3 _targetPos)
     {
         dir = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
 
@@ -148,7 +148,7 @@ public class Pig : MonoBehaviour
     void Wait()
     {
         currentTime = waitTime;
-        anim.SetTrigger("Wait");
+        
     }
     void Eat()
     {
