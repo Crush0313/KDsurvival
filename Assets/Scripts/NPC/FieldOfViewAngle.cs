@@ -48,6 +48,7 @@ public class FieldOfViewAngle : MonoBehaviour
                     {
                         if (_hit.transform.name == "Player") //장애물 없이 적중하면
                         {
+                            //Debug.Log("돔황챠");
                             thePig.Run(_hit.transform.position);
                             Debug.DrawRay(transform.position + transform.up, _dir, Color.blue);
                         }

@@ -20,10 +20,10 @@ public class PickaxeController : CloseWeaponController
                 {
                     hitInfo.transform.GetComponent<Rock>().Mine();
                 }
-                else if (hitInfo.transform.tag == "Npc")
+                else if (hitInfo.transform.tag == "WeakAnimal")
                 {
                     SoundManager.instance.PlaySE("Animal_Hit");
-                    hitInfo.transform.GetComponent<Pig>().Damage(currentCloseWeapon.damage, transform.position); 
+                    hitInfo.transform.GetComponent<WeakAnimal>().Damage(currentCloseWeapon.damage, transform.position);
                 }
                 isSwing = false; //1회만 타격
 

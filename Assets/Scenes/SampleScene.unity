@@ -3076,7 +3076,7 @@ GameObject:
   - component: {fileID: 923861741}
   - component: {fileID: 923861740}
   - component: {fileID: 923861739}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4091,6 +4091,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCloseWeapon: {fileID: 4115332297407088165}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 819
 --- !u!114 &1218796299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4135,6 +4138,9 @@ MonoBehaviour:
   originPos: {x: 0, y: 0, z: 0}
   cam: {fileID: 963194227}
   hit_effect_prefab: {fileID: 982501589913109496, guid: 4bcf60b3e1cfb644d831f4f8d5fa0410, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 819
 --- !u!82 &1218796301
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4260,6 +4266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCloseWeapon: {fileID: 1739912531}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 819
 --- !u!114 &1218796304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4273,6 +4282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCloseWeapon: {fileID: 689454878}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 819
 --- !u!1 &1263001182
 GameObject:
   m_ObjectHideFlags: 0
@@ -15768,6 +15780,7 @@ GameObject:
   - component: {fileID: 1743561961}
   - component: {fileID: 1743561960}
   - component: {fileID: 1743561964}
+  - component: {fileID: 1743561965}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Npc
@@ -15953,6 +15966,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1743561965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743561959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc649b6cf3447b4e97bb8ea839ff4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAngle: 120
+  viewDistance: 10
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1747356446
 GameObject:
   m_ObjectHideFlags: 0
@@ -16859,7 +16889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1542273528931905340, guid: 4810bb066dee2474a884ab8ef5dde972, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1542273528931905340, guid: 4810bb066dee2474a884ab8ef5dde972, type: 3}
       propertyPath: m_LocalPosition.x
