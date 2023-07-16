@@ -15,6 +15,8 @@ public class ItemEffect
 public class ItemEffectDatabase : MonoBehaviour
 {
     [SerializeField]
+    SlotToolTip theSlotToolTip;
+    [SerializeField]
     StatusController theStatus;
     [SerializeField]
     WeaponManager theWeaponManager;
@@ -22,7 +24,15 @@ public class ItemEffectDatabase : MonoBehaviour
     ItemEffect[] itemEffects;
     const string HP = "HP", SP = "SP", DP = "DP", HUNGRY = "HUNGRY", THIRSTY = "THIRSTY", SATISFY = "SATISFY";
 
+    public void ShowTooltip(Item item,Vector3 _pos)
+    {
+        theSlotToolTip.showTooltip(item,_pos);
+    }
 
+    public void HideTooltip()
+    {
+        theSlotToolTip.HideTooltip();
+    }
     private void Start()
     {
 

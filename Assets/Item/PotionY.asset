@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8038b3bec1eb94ea2c6642de7aa7bd, type: 3}
   m_Name: PotionY
   m_EditorClassIdentifier: 
-  itemName: 
-  itemType: 0
-  itemImage: {fileID: 0}
-  itemPrefab: {fileID: 0}
+  itemName: PotionY
+  itemType: 1
+  itemImage: {fileID: 21300000, guid: 8cdf010fdbd973340b5b438970ae3438, type: 3}
+  itemPrefab: {fileID: 5121519763412463569, guid: ed3e430bde539a84488b0bc91f9bea9a, type: 3}
   weaponType: 
